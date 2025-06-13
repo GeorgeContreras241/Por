@@ -1,0 +1,112 @@
+---
+
+---
+
+<header class="fixed top-0 w-full z-50 bg-transparent">
+  <nav class="hidden md:flex container mx-auto px-6 py-3 justify-center text-white">
+    <div
+      class="flex space-x-8 bg-[#1a2238]/95 border border-gray-800/50 rounded-full px-8 py-3 shadow-xl shadow-blue-900/10"
+    >
+      <a
+        aria-label="hero"
+        href="#hero"
+        class="transition-all duration-300 font-medium text-sm uppercase tracking-wider relative group"
+      >
+        <span
+          id="hero_span"
+          class="span-border absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-400 transition-all duration-300 group-[w-full]"
+        ></span>
+        Inicio
+      </a>
+      <a
+        aria-label="projects"
+        href="#projects"
+        class="hover:text-white transition-all duration-300 font-medium text-sm uppercase tracking-wider relative group"
+      >
+        <span
+          id="projects_span"
+          class="span-border absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-400 transition-all duration-300 group-hover:w-full"
+        ></span>
+        Proyectos
+      </a>
+      <a
+        aria-label="about"
+        href="#about"
+        class="hover:text-white transition-all duration-300 font-medium text-sm uppercase tracking-wider relative group"
+      >
+        <span
+          id="about_span"
+          class="span-border absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-400 transition-all duration-300 group-hover:w-full"
+        ></span>
+        Sobre mi
+      </a>
+      <a
+        aria-label="skills"
+        href="#skills"
+        class="hover:text-white transition-all duration-300 font-medium text-sm uppercase tracking-wider relative group"
+      >
+        <span
+          id="skills_span"
+          class="span-border absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-400 transition-all duration-300"
+        ></span>
+        Skills
+      </a>
+    </div>
+  </nav>
+  <div class="md:hidden mx-auto px-6 py-3 flex justify-between text-white">
+    <div>Portafolio</div>
+    <div class="flex space-x-8">
+      <div>d</div>
+      <div>d</div>
+      <div>dsa</div>
+    </div>
+  </div>
+</header>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const sections = document.querySelectorAll("section");
+    const navbarLinks = document.querySelectorAll("header nav a");
+
+    const callback = (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const currentId = entry.target.id;
+
+          navbarLinks.forEach((link) => {
+            const linkTarget = link.getAttribute("aria-label");
+            if (linkTarget === currentId) {
+              link.classList.add("[&>span]:w-full");
+              link.classList.add("text-blue-400");
+              link.classList.remove("text-white");
+            } else {
+              link.classList.remove("[&>span]:w-full");
+              link.classList.remove("border-b");
+              link.classList.remove("text-blue-400");
+              link.classList.add("text-white");
+            }
+          });
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(callback, {
+      root: null,
+      rootMargin: "10px",
+      threshold: 0.5, 
+    });
+
+    sections.forEach((section) => observer.observe(section));
+
+
+    document.onvisibilitychange = () => {
+      if (document.visibilityState === "hidden") {
+        observer.disconnect();
+      } else {
+        sections.forEach((section) => observer.observe(section));
+      }
+    };
+  });
+</script>
+<style>
+
+</style>

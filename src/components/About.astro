@@ -1,0 +1,43 @@
+---
+import User from "./icons/User.astro";
+---
+
+<section
+  class="flex flex-col pt-32 gap-4 scroll-m-20 w-full mx-auto container"
+  id="about"
+>
+  <h2
+    class="flex items-center mb-6 text-3xl font-semibold gap-x-3 text-[#a3e3f8] neon-text"
+  >
+    <User class="h-8 w-8" />
+    Sobre mí
+  </h2>
+  <div class="flex md:flex-row flex-col-reverse md:gap-6 gap-4">
+    <div class="md:w-4/6 [&>p]:mb-4">
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex odit vitae
+        veritatis deserunt mollitia aperiam rerum labore sequi quia atque
+        numquam nisi nam, a vel et similique sed minus possimus.
+      </p>
+      <p>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officia,
+        repudiandae? Nemo quod illo nihil enim numquam culpa fugiat architecto
+        hic! Sequi odio fugiat temporibus illo! Eum error minus aliquam
+        praesentium!
+      </p>
+      <p>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officia,
+        repudiandae? Nemo quod illo nihil enim numquam culpa fugiat architecto
+        hic! Sequi odio fugiat temporibus illo! Eum error minus aliquam
+        praesentium!
+      </p>
+    </div>
+    <div class="md:w-2/6">
+      <img
+        src="https://i.pinimg.com/originals/e8/c6/24/e8c624226f9e534ee92f6ab85b979f86.jpg"
+        alt="me"
+        class="w-full h-full object-cover aspect-auto rounded-2xl"
+      />
+    </div>
+  </div>
+</section>

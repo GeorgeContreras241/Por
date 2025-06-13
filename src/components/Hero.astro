@@ -1,0 +1,62 @@
+---
+import GitHub from "./icons/GitHub.astro";
+import LinkedIn from "./icons/LinkedIn.astro";
+import Email from "./icons/Email.astro";
+import Link_A from "./ui/Link_A.astro";
+---
+
+<section
+  id="hero"
+  class="m-auto container scroll-m-20 flex gap-3 flex-col items-start justify-center w-full lg:py-36 py-16 font-inter"
+>
+  <h1
+    class="text-4xl font-bold tracking-tight sm:text-5xl text-[#a3e3f8] neon-text"
+  >
+    Hola, Soy George
+  </h1>
+  <span class="text-lg text-[#d9f2fa]">
+    Desarrollador Frontend | React · Next.js · Astro
+  </span>
+  <p
+    class="mt-6 max-w-xl text-xl [&>strong]:text-[#ade7fa] [&>strong]:font-semibold text-gray-200"
+  >
+    <strong>Tecnólogo en Desarrollo de Software</strong>, enfocado en el{" "}
+    <strong>Desarrollo Frontend</strong>. Apasionado por crear interfaces
+    modernas, eficientes, combinando diseño, rendimiento y buenas prácticas de
+    desarrollo.
+  </p>
+  <nav class="flex items-center flex-wrap gap-3 mt-6 w-full">
+    <Link_A
+      href="https://www.linkedin.com/in/georgecontreras241/"
+      title="Mi LinkedIn"
+      aria-label="Visitar Mi LinkedIn"
+    >
+      <LinkedIn class="md:w-4 md:h-4 w-5 h-5" />
+      <span class="md:flex hidden">Linkedin</span>
+    </Link_A>
+    <Link_A
+      href="https://github.com/GeorgeContreras241"
+      title="Git Hub"
+      aria-label="Visitar Git Hub"
+    >
+      <GitHub class="md:w-4 md:h-4 w-5 h-5" />
+      <span class="md:flex hidden">Git Hub</span>
+    </Link_A>
+    <Link_A
+      href="mailto:georgecontreras241@gmail.com"
+      title="Email"
+      aria-label="Visitar Email"
+    >
+      <Email class="md:w-4 md:h-4 w-5 h-5" />
+      <span class="md:flex hidden">Email</span>
+    </Link_A>
+    <a
+      class="px-6 py-1.5 bg-[#8fe3ff] text-black font-semibold rounded-md ml-auto hover:cursor-pointer hover:bg-white"
+      href="https://github.com/GeorgeContreras241"
+      target="_blank"
+      rel="noreferrer"
+    >
+      Descargar CV Aqui
+    </a>
+  </nav>
+</section>

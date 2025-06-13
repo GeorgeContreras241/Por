@@ -1,0 +1,45 @@
+---
+import Email from "./icons/Email.astro";
+import LinkedIn from "./icons/LinkedIn.astro";
+import Github from "./icons/Github.astro";
+---
+
+<footer
+  class="flex flex-row items-center justify-between lg:max-w-5xl md:max-w-2xl
+  mx-auto md:px-12 px-4"
+>
+  <span class="text-gray-100 text-sm"
+    >@1025 C.C Algun dia pasara algo grande.</span
+  >
+  <nav class="flex gap-2">
+    <a
+      href="https://www.linkedin.com/in/georgecontreras241"
+      target="_blank"
+      rel="noreferrer"
+      aria-label="Perfil de LinkedIn"
+      title="LinkedIn"
+    >
+      <LinkedIn class="h-6 w-6 hover:scale-[1.15] transition duration-500" />
+    </a>
+
+    <a
+      href="https://github.com/GeorgeContreras241"
+      target="_blank"
+      rel="noreferrer"
+      aria-label="Perfil de GitHub"
+      title="GitHub"
+    >
+      <Github class="h-6 w-6 hover:scale-[1.15] transition duration-500" />
+    </a>
+
+    <a
+      href="mailto:georgecontreras241@gmail.com"
+      target="_blank"
+      rel="noreferrer"
+      aria-label="Enviar correo electrónico"
+      title="Email"
+    >
+      <Email class="h-6 w-6 hover:scale-[1.15] transition duration-500" />
+    </a>
+  </nav>
+</footer>

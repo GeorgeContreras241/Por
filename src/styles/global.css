@@ -1,0 +1,11 @@
+@import "tailwindcss";
+
+.neon-text {
+  text-shadow: 0 0 80px #00cfff, 0 0 5px #00cfff, 0 0 20px #00cfff,
+    0 0 0 #fdfdfd;
+}
+html{
+  scroll-behavior: smooth;
+  font-family: 'Onest Variable', system-ui, sans-serif;
+
+}

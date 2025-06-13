@@ -1,0 +1,109 @@
+---
+import Astro_icons from "./icons/Astro_icon.astro";
+import Express from "./icons/Express.astro";
+import GitHub from "./icons/GitHub.astro";
+import JavaScript from "./icons/JavaScript.astro";
+import Mongo from "./icons/Mongo.astro";
+import Next from "./icons/Next.js.astro";
+import Node from "./icons/Node.astro";
+import React from "./icons/React.astro";
+import Tailwind from "./icons/Tailwind.astro";
+import Skills from "./icons/Skills.astro";
+import { frontendSkills, backendSkills, devopsSkills } from "../const/const.js";
+
+const getIconComponent = (name: any) => {
+  const icons = {
+    React,
+    Next,
+    Astro_icons,
+    JavaScript,
+    Tailwind,
+    Node,
+    Express,
+    Mongo,
+    GitHub,
+  };
+
+  return icons[name] || null;
+};
+---
+
+<section
+  id="skills"
+  class="section flex flex-col gap-4 scroll-m-20 w-full mx-auto container py-36"
+>
+  <div class="flex flex-col mb-6">
+    <h2
+      class="flex items-center mb-6 text-3xl font-semibold gap-x-3 text-[#a3e3f8] neon-text"
+    >
+      <Skills class="h-8 w-8" />
+      Mis Conocimientos
+    </h2>
+    <span>
+      Me especializo en el lenguaje de programación JavaScript tanto Frontend
+      como Backend.
+    </span>
+  </div>
+  <div class="flex md:flex-row flex-col gap-3 lg:flex-nowrap flex-grow">
+    <p
+      class="flex items-start p-2 text-2xl font-bold dark:text-gray-200 md:w-1/4 w-full"
+    >
+      Frontend
+    </p>
+    <ul class="flex flex-row items-center gap-3 flex-wrap md:w-3/4 w-full">
+      {
+        frontendSkills.map((tech) => {
+          const Icon = getIconComponent(tech.icon);
+          return (
+            <li class="flex flex-row items-center gap-x-3 justify-center px-6 py-1.5  bg-[#052530] rounded-md hover:bg-[#253d46] hover:cursor-pointer">
+              {Icon && <Icon class="w-4 h-4 mx-auto" />}
+              <p class="text-sm">{tech.name}</p>
+            </li>
+          );
+        })
+      }
+    </ul>
+  </div>
+
+  <div class="flex md:flex-row flex-col gap-3 flex-grow">
+    <p
+      class="flex items-start p-2 text-2xl font-bold dark:text-gray-200 md:w-1/4 w-full"
+    >
+      Backend
+    </p>
+    <ul class="flex flex-row items-center gap-3 flex-wrap md:w-3/4 w-full">
+      {
+        backendSkills.map((tech) => {
+          const Icon = getIconComponent(tech.icon);
+          return (
+            <li class="flex flex-row items-center gap-x-3 justify-center px-6 py-1.5 bg-[#052530] rounded-md hover:bg-[#253d46] hover:cursor-pointer">
+              {Icon && <Icon class="w-4 h-4 mx-auto" />}
+              <p class="text-sm">{tech.name}</p>
+            </li>
+          );
+        })
+      }
+    </ul>
+  </div>
+
+  <div class="flex md:flex-row flex-col gap-3 flex-grow">
+    <p
+      class="flex items-start p-2 text-2xl font-bold text-gray-200 md:w-1/4 w-full"
+    >
+      DevOps
+    </p>
+    <ul class="flex flex-row items-center gap-3 flex-wrap md:w-3/4 w-full">
+      {
+        devopsSkills.map((tech) => {
+          const Icon = getIconComponent(tech.icon);
+          return (
+            <li class="flex flex-row items-center gap-x-3 justify-center px-6 py-1.5 bg-[#052530] rounded-md hover:bg-[#253d46] hover:cursor-pointer">
+              {Icon && <Icon class="w-4 h-4 mx-auto" />}
+              <p class="text-sm">{tech.name}</p>
+            </li>
+          );
+        })
+      }
+    </ul>
+  </div>
+</section>
