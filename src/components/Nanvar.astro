@@ -3,7 +3,9 @@
 ---
 
 <header class="fixed top-0 w-full z-50 bg-transparent">
-  <nav class="hidden md:flex container mx-auto px-6 py-3 justify-center text-white">
+  <nav
+    class="hidden md:flex container mx-auto px-6 py-3 justify-center text-white"
+  >
     <div
       class="flex space-x-8 bg-[#1a2238]/95 border border-gray-800/50 rounded-full px-8 py-3 shadow-xl shadow-blue-900/10"
     >
@@ -53,14 +55,73 @@
       </a>
     </div>
   </nav>
-  <div class="md:hidden mx-auto px-6 py-3 flex justify-between text-white">
-    <div>Portafolio</div>
-    <div class="flex space-x-8">
-      <div>d</div>
-      <div>d</div>
-      <div>dsa</div>
+  <nav
+    class="bg-[#0a0041] md:hidden mx-auto px-6 py-3 flex items-center justify-between text-white"
+  >
+    <span class="font-bold text-lg">Portafolio</span>
+    <div class="menu flex flex-col gap-y-1.5 justify-center items-center">
+      <input
+        type="checkbox"
+        class="toggle peer absolute z-[1] opacity-0 w-6 h-6 cursor-pointer"
+      />
+      <div class="bg-white h-0.5 w-6 line"></div>
+      <div class="bg-white h-0.5 w-6 line"></div>
+      <div class="bg-white h-0.5 w-6 line"></div>
     </div>
-  </div>
+    <section
+      class="md:hidden close desplegable absolute top-0 left-0 translate-x-[-120%] z-10 w-[70%]
+        h-screen transition-all duration-500 ease-out bg-[#0d101d]"
+    >
+      <div
+        class="flex flex-col gap-6 p-x-6 py-8 items-center justify-center h-full w-full"
+      >
+        <a
+          aria-label="hero"
+          href="#hero"
+          class="transition-all duration-300 font-medium text-lg uppercase tracking-wider relative group"
+        >
+          <span
+            id="hero_span"
+            class="span-border absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-400 transition-all duration-300 group-[w-full]"
+          ></span>
+          Inicio
+        </a>
+        <a
+          aria-label="projects"
+          href="#projects"
+          class="hover:text-white transition-all duration-300 font-medium text-lg uppercase tracking-wider relative group"
+        >
+          <span
+            id="projects_span"
+            class="span-border absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-400 transition-all duration-300 group-hover:w-full"
+          ></span>
+          Proyectos
+        </a>
+        <a
+          aria-label="about"
+          href="#about"
+          class="hover:text-white transition-all duration-300 font-medium text-lg uppercase tracking-wider relative group"
+        >
+          <span
+            id="about_span"
+            class="span-border absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-400 transition-all duration-300 group-hover:w-full"
+          ></span>
+          Sobre mi
+        </a>
+        <a
+          aria-label="skills"
+          href="#skills"
+          class="hover:text-white transition-all duration-300 font-medium text-lg uppercase tracking-wider relative group"
+        >
+          <span
+            id="skills_span"
+            class="span-border absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-400 transition-all duration-300"
+          ></span>
+          Skills
+        </a>
+      </div>
+    </section>
+  </nav>
 </header>
 <script>
   document.addEventListener("DOMContentLoaded", () => {
@@ -92,11 +153,10 @@
     const observer = new IntersectionObserver(callback, {
       root: null,
       rootMargin: "10px",
-      threshold: 0.5, 
+      threshold: 0.5,
     });
 
     sections.forEach((section) => observer.observe(section));
-
 
     document.onvisibilitychange = () => {
       if (document.visibilityState === "hidden") {
@@ -107,6 +167,33 @@
     };
   });
 </script>
-<style>
 
+<script>
+  const toggle = document.querySelector(".toggle");
+  toggle?.addEventListener("input", (event) => {
+    const desplegable = document.querySelector(".desplegable");
+    if (event.target.checked) {
+      desplegable?.classList.add("translate-x-[0%]");
+    } else {
+      desplegable?.classList.remove("translate-x-[0%]");
+    }
+  });
+</script>
+<style>
+  .line {
+    transform-origin: left;
+    transition: all 0.5s;
+  }
+  .toggle:checked ~ .line:nth-child(2) {
+    transform: rotate(45deg);
+    height: 3px;
+  }
+  .toggle:checked ~ .line:nth-child(3) {
+    visibility: hidden;
+    opacity: 0;
+  }
+  .toggle:checked ~ .line:nth-child(4) {
+    transform: rotate(-45deg);
+    height: 3px;
+  }
 </style>

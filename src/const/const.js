@@ -10,22 +10,22 @@ const projects = [
       { name: 'Express.js', icon: 'Express' },
       { name: 'MongoDB', icon: 'Mongo' }
     ],
-    url: 'https://github.com/joaopaulo-dev/calculator-app',
+    url: false,
     github: 'https://github.com/joaopaulo-dev/calculator-app',
-    image: './project04.webp'
+    image: './project07.webp'
   },
   {
     id: 1,
     name: 'Local - Gestor de Contraseñas',
     description:
-      'Aplicación full stack segura para gestionar contraseñas. Las contraseñas se encriptan en el frontend antes de almacenarse en la base de datos, garantizando que solo el usuario pueda desencriptarlas con su clave maestra.',
+      'Aplicación Local segura para gestionar contraseñas. Las contraseñas se encriptan en el frontend y no se almacenan en la base de datos, garantizando que solo el usuario pueda desencriptarlas con su clave maestra.',
     technologies: [
       { name: 'React', icon: 'React' },
       { name: 'Tailwind', icon: 'Tailwind' }
     ],
     url: 'https://password-manager-three-liard.vercel.app/',
     github: 'https://github.com/GeorgeContreras241/newPass',
-    image: './project01.webp'
+    image: './project06.webp'
   },
   {
     id: 2,
@@ -38,20 +38,20 @@ const projects = [
     ],
     url: 'https://metalicasjyn.vercel.app',
     github: 'https://github.com/GeorgeContreras241/Frontend-metalicas-j-y-n',
-    image: './project02.webp'
+    image: './project01.webp'
   },
   {
     id: 3,
     name: 'Tienda Online con Fake Store API',
     description:
-      'E-commerce completo que consume la API de Fake Store, con funcionalidades de filtrado, búsqueda y paginación. Próximamente incluirá pasarela de pagos y historial de compras.',
+      'E-commerce que consume la API de Fake Store, con funcionalidades de filtrado y búsqueda. Próximamente incluirá pasarela de pagos y historial de compras.',
     technologies: [
       { name: 'React', icon: 'React' },
       { name: 'Tailwind', icon: 'Tailwind' }
     ],
     url: 'https://store-api-sage.vercel.app',
     github: 'https://github.com/GeorgeContreras241/Store-Api',
-    image: './project03.webp'
+    image: './project04.webp'
   }
 ]
 

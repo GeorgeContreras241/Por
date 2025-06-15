@@ -79,14 +79,14 @@ const getComponentIcon = (name: any) => {
                   Ir a Git Hub
                 </a>
                 <a
-                  href={projects.url}
+                  href={projects.url == false ? projects.github : projects.url}
                   target="_blank"
                   class="bg-[#052530] hover:bg-[#253d46] text-white font-semibold flex items-center gap-3 py-1 px-3 rounded-md text-sm"
                   rel="noreferrer"
                   title="Visitar el sitio web"
                 >
                   <Web class="h-4 w-4" />
-                  Visitar
+                  {projects.url == false ? "Programando" : "Visitar"}
                 </a>
               </nav>
             </div>
