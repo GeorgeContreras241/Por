@@ -24,7 +24,7 @@ const projects = [
       { name: 'Tailwind', icon: 'Tailwind' }
     ],
     url: 'https://password-manager-three-liard.vercel.app/',
-    github: 'https://github.com/GeorgeContreras241/newPass',
+    github: 'https://github.com/GeorgeContreras241/G-Password_manager',
     image: './project06.webp'
   },
   {
@@ -37,7 +37,7 @@ const projects = [
       { name: 'Tailwind', icon: 'Tailwind' }
     ],
     url: 'https://metalicasjyn.vercel.app',
-    github: 'https://github.com/GeorgeContreras241/Frontend-metalicas-j-y-n',
+    github: 'https://github.com/GeorgeContreras241/G-MetalicasJyN',
     image: './project01.webp'
   },
   {
