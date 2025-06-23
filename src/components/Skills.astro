@@ -8,8 +8,10 @@ import Next from "./icons/Next.js.astro";
 import Node from "./icons/Node.astro";
 import React from "./icons/React.astro";
 import Tailwind from "./icons/Tailwind.astro";
-import Skills from "./icons/Skills.astro";
-import { frontendSkills, backendSkills, devopsSkills } from "../const/const.js";
+import Skills_icon from "./icons/Skills.astro";
+import { frontendSkills } from "../const/frontendSkills.js";
+import { backendSkills } from "../const/backendSkills.js";
+import { devopsSkills } from "../const/devopsSkills.js";
 
 const getIconComponent = (name: any) => {
   const icons = {
@@ -36,7 +38,7 @@ const getIconComponent = (name: any) => {
     <h2
       class="flex items-center mb-6 text-3xl font-semibold gap-x-3 text-[#a3e3f8] neon-text"
     >
-      <Skills class="h-8 w-8" />
+      <Skills_icon class="h-8 w-8" />
       Mis Conocimientos
     </h2>
     <span>

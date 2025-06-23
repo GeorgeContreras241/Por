@@ -10,7 +10,7 @@ import JavaScript from "./icons/JavaScript.astro";
 import Mongo from "./icons/Mongo.astro";
 import Next from "./icons/Next.js.astro";
 import Node from "./icons/Node.astro";
-import { projects } from "../const/const.js";
+import { projects } from "../const/projects.js";
 
 const getComponentIcon = (name: any) => {
   const icons = {
@@ -48,11 +48,11 @@ const getComponentIcon = (name: any) => {
                 src={projects.image}
                 alt={projects.name}
                 loading="lazy"
-                class="w-full h-full object-cover aspect-auto rounded-2xl"
+                class="w-full h-full object-cover aspect-auto rounded-2xl transition-transform duration-500 hover:scale-105 hover:shadow-lg"
               />
             </div>
             <div class="full md:w-3/6 grow h-full">
-              <h3 class="text-2xl font-bold text-[#a3e3f8] drop-shadow-md">
+              <h3 class="text-2xl font-bold text-[#a3e3f8] drop-shadow-md transition-colors duration-500 hover:text-[#8fe3ff]">
                 {projects.name}
               </h3>
               <ul class="mt-2 flex flex-wrap items-center gap-4 text-[.75rem] font-semibold text-gray-100">
@@ -72,20 +72,20 @@ const getComponentIcon = (name: any) => {
                   href={projects.github}
                   title="Git Hub"
                   target="_blank"
-                  class="bg-[#052530] hover:bg-[#253d46] text-gray-100 font-semibold flex items-center gap-3 py-1 px-3 rounded-md text-sm hover:"
+                  class="bg-[#052530] hover:bg-[#253d46] text-gray-100 font-semibold flex items-center gap-3 py-1 px-3 rounded-md text-sm transition-all duration-300 hover:scale-[1.02]"
                   rel="noreferrer"
                 >
-                  <GitHub class="h-4 w-4" />
+                  <GitHub class="h-4 w-4 transition-transform duration-300" />
                   Ir a Git Hub
                 </a>
                 <a
                   href={projects.url == false ? projects.github : projects.url}
                   target="_blank"
-                  class="bg-[#052530] hover:bg-[#253d46] text-white font-semibold flex items-center gap-3 py-1 px-3 rounded-md text-sm"
+                  class="bg-[#052530] hover:bg-[#253d46] text-white font-semibold flex items-center gap-3 py-1 px-3 rounded-md text-sm transition-all duration-300 hover:scale-[1.02]"
                   rel="noreferrer"
                   title="Visitar el sitio web"
                 >
-                  <Web class="h-4 w-4" />
+                  <Web class="h-4 w-4 transition-transform duration-300" />
                   {projects.url == false ? "Programando" : "Visitar"}
                 </a>
               </nav>

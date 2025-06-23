@@ -1,9 +1,9 @@
 ---
- const { href, title, ariaLabel } = Astro.props;
+ const { href, title, ariaLabel, classStyle } = Astro.props;
 ---
 
 <a
-  class="flex items-center gap-x-4 text-sm md:px-6 px-2.5 py-2.5 bg-gray-800 text-white font-semibold rounded-md hover:cursor-pointer hover:bg-gray-700"
+  class={classStyle}
   href={href}
   title={title}
   target="_blank"

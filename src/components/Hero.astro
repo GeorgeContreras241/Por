@@ -1,7 +1,6 @@
 ---
 import GitHub from "./icons/GitHub.astro";
 import LinkedIn from "./icons/LinkedIn.astro";
-import Email from "./icons/Email.astro";
 import Link_A from "./ui/Link_A.astro";
 ---
 
@@ -27,24 +26,26 @@ import Link_A from "./ui/Link_A.astro";
   </p>
   <nav class="flex items-center flex-wrap gap-3 mt-6 w-full">
     <Link_A
+      classStyle="flex items-center gap-x-4 text-sm md:px-6 px-2.5 py-2.5 bg-gray-800 text-white font-semibold rounded-md hover:cursor-pointer hover:bg-gray-700 hover:scale-105 transition-all duration-200"
       href="https://www.linkedin.com/in/georgecontreras241/"
       title="Mi LinkedIn"
       aria-label="Visitar Mi LinkedIn"
     >
-      <LinkedIn class="md:w-4 md:h-4 w-5 h-5" />
+      <LinkedIn class="md:w-4 md:h-4 w-5 h-5 transition-transform duration-200 hover:scale-110" />
       <span class="md:flex hidden">Linkedin</span>
     </Link_A>
     <Link_A
+      classStyle="flex items-center gap-x-4 text-sm md:px-6 px-2.5 py-2.5 bg-gray-800 text-white font-semibold rounded-md hover:cursor-pointer hover:bg-gray-700 hover:scale-105 transition-all duration-200"
       href="https://github.com/GeorgeContreras241"
       title="Git Hub"
       aria-label="Visitar Git Hub"
     >
-      <GitHub class="md:w-4 md:h-4 w-5 h-5" />
+      <GitHub class="md:w-4 md:h-4 w-5 h-5 transition-transform duration-200 hover:scale-110" />
       <span class="md:flex hidden">Git Hub</span>
     </Link_A>
 
     <a
-      class="px-6 py-1.5 bg-[#8fe3ff] text-black font-semibold rounded-md ml-auto hover:cursor-pointer hover:bg-white"
+      class="px-6 py-1.5 bg-[#8fe3ff] text-black font-semibold rounded-md ml-auto hover:cursor-pointer hover:bg-white hover:scale-105 transition-all duration-200"
       href="./CV.pdf"
       target="_blank"
       rel="noreferrer"
@@ -53,4 +54,3 @@ import Link_A from "./ui/Link_A.astro";
     </a>
   </nav>
 </section>
-
