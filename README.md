@@ -1,34 +1,22 @@
-# Astro Starter Kit: Basics
+# 🌐 Portafolio – George Contreras
 
-```sh
-npm create astro@latest -- --template basics
-```
+¡Bienvenido a mi portafolio personal como desarrollador frontend!
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+Este sitio web es una muestra de mis habilidades, proyectos y tecnologías que manejo en el desarrollo web moderno. Fue construido con **Next.js** y **Tailwind CSS**, y está optimizado para ofrecer una experiencia rápida y responsive.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+🔗 [Ver sitio en vivo](https://porta-tau.vercel.app)
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+## 🧑‍💻 Sobre mí
 
-## 🚀 Project Structure
+Soy George Contreras, desarrollador frontend con experiencia en React, Next.js, Tailwind CSS y otras tecnologías del ecosistema JavaScript. Me apasiona construir interfaces modernas, accesibles y rápidas, con un enfoque en la experiencia del usuario y el diseño responsivo.
 
-Inside of your Astro project, you'll see the following folders and files:
+## 🚀 Tecnologías utilizadas
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
-
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+- **Next.js** – Framework basado en React
+- **React** – Librería para construir interfaces de usuario
+- **Tailwind CSS** – Framework de utilidades para estilos
+- **Vercel** – Plataforma de despliegue
+- **HTML5 / CSS5**
 
 ## 🧞 Commands
 
@@ -43,6 +31,3 @@ All commands are run from the root of the project, from a terminal:
 | `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
 | `npm run astro -- --help` | Get help using the Astro CLI                     |
 
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
