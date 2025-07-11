@@ -43,12 +43,19 @@ const getComponentIcon = (name: any) => {
           <article
             class={`flex flex-col gap-4 ${index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"} md:gap-8`}
           >
-            <div class="w-full md:w-3/6">
+            <div class="relative z-1100 w-full md:w-3/6 border border-gray-800 rounded-lg h-full 
+            backdrop-blur-2xl overflow-hidden">
+              <div class="bg-neutral-800 p-2 flex gap-2 align-center rounded-t-lg">
+                <span class="w-2 h-2 rounded-full bg-red-500" />
+                <span class="w-2 h-2 rounded-full bg-yellow-500" />
+                <span class="w-2 h-2 rounded-full bg-green-500" />
+              </div>
               <img
                 src={projects.image}
                 alt={projects.name}
                 loading="lazy"
-                class="w-full h-full object-cover aspect-auto rounded-2xl transition-transform duration-500 hover:scale-105 hover:shadow-lg"
+                class="w-full h-full object-cover aspect-auto rounded-b-lg border border-gray-700 cursor-pointer
+                relative z-1100 top-5 left-5 hover:top-0 hover:left-0 transition-all duration-1200 hover:border-transparent"
               />
             </div>
             <div class="full md:w-3/6 grow h-full">
@@ -56,7 +63,7 @@ const getComponentIcon = (name: any) => {
                 {projects.name}
               </h3>
               <ul class="mt-2 flex flex-wrap items-center gap-4 text-[.75rem] font-semibold text-gray-100">
-                {projects.technologies.map((tech, index) => {
+                {projects.technologies.map((tech) => {
                   const Icon = getComponentIcon(tech.icon);
                   return (
                     <li class="flex justify-center items-center gap-x-1.5">
@@ -70,23 +77,33 @@ const getComponentIcon = (name: any) => {
               <nav class="flex flex-row gap-x-4 mt-4 justify-end items-center">
                 <a
                   href={projects.github}
-                  title="Git Hub"
+                  aria-label={`Ver código fuente de ${projects.name} en GitHub`}
+                  title={`Ver código fuente de ${projects.name} en GitHub`}
                   target="_blank"
                   class="bg-[#052530] hover:bg-[#253d46] text-gray-100 font-semibold flex items-center gap-3 py-1 px-3 rounded-md text-sm transition-all duration-300 hover:scale-[1.02]"
                   rel="noreferrer"
                 >
                   <GitHub class="h-4 w-4 transition-transform duration-300" />
-                  Ir a Git Hub
+                  Ver código fuente en GitHub
                 </a>
                 <a
-                  href={projects.url == false ? projects.github : projects.url}
+                  href={projects.url || projects.github}
+                  aria-label={
+                    projects.url === false
+                      ? `Ver documentación de ${projects.name} en GitHub`
+                      : `Ver demostración de ${projects.name}`
+                  }
                   target="_blank"
                   class="bg-[#052530] hover:bg-[#253d46] text-white font-semibold flex items-center gap-3 py-1 px-3 rounded-md text-sm transition-all duration-300 hover:scale-[1.02]"
                   rel="noreferrer"
-                  title="Visitar el sitio web"
+                  title={
+                    projects.url === false
+                      ? `Ver documentación de ${projects.name} en GitHub`
+                      : `Ver demostración de ${projects.name}`
+                  }
                 >
                   <Web class="h-4 w-4 transition-transform duration-300" />
-                  {projects.url == false ? "Programando" : "Visitar"}
+                  {projects.url === false ? "Ver documentación" : "Ver demostración"}
                 </a>
               </nav>
             </div>

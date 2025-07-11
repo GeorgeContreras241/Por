@@ -7,7 +7,7 @@ import User from "./icons/User.astro";
   id="about"
 >
   <h2
-    class="flex items-center mb-6 text-3xl font-semibold gap-x-3 text-[#a3e3f8] neon-text"
+    class="relative z-10 flex items-center mb-6 text-3xl font-semibold gap-x-3 text-[#a3e3f8] neon-text"
   >
     <User class="h-8 w-8" />
     Sobre mí
@@ -32,11 +32,12 @@ import User from "./icons/User.astro";
         software.
       </p>
     </div>
-    <div class="md:w-2/6">
+    <div class="md:w-2/6  h-100">
       <img
         src="/logo/Logo.webp"
         alt="Foto de perfil"
-        class="w-full h-full relative bottom-20 object-cover rounded-full aspect-auto transition-transform duration-500 hover:scale-110 cursor-pointer"
+        class="w-full h-full relative md:bottom-20 bottom-0 object-cover rounded-full aspect-auto transition-transform 
+        duration-500 hover:scale-105 cursor-pointer"
       />
     </div>
   </div>

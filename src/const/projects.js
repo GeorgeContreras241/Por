@@ -23,8 +23,8 @@ export const projects = [
         { name: 'React', icon: 'React' },
         { name: 'Tailwind', icon: 'Tailwind' }
       ],
-      url: 'https://password-manager-three-liard.vercel.app/',
-      github: 'https://github.com/GeorgeContreras241/G-Password_manager',
+      url: 'https://g-local-password-manager.vercel.app/',
+      github: 'https://github.com/GeorgeContreras241/G-Local-password-manager',
       image: './images/project06.webp'
     },
     {
