@@ -3,36 +3,36 @@ import User from "./icons/User.astro";
 ---
 
 <section
-  class="flex flex-col pt-32 gap-4 scroll-m-20 w-full mx-auto container"
+  class="flex flex-col pt-32 gap-4 scroll-m-20 h-[100vh] w-full mx-auto container"
   id="about"
 >
   <h2
-    class="relative z-10 flex items-center mb-6 text-3xl font-semibold gap-x-3 text-[#a3e3f8] neon-text"
+    class="title_scroll relative z-10 flex items-center mb-6 text-3xl font-semibold gap-x-3 text-[#a3e3f8] neon-text"
   >
     <User class="h-8 w-8" />
     Sobre mí
   </h2>
   <div class="flex md:flex-row flex-col-reverse md:gap-6 gap-4">
     <div class="md:w-4/6 [&>p]:mb-4">
-      <p>
+      <p class="text_scroll">
         Hola, soy George, un programador web enfocado en el desarrollo Frontend,
         aunque también tengo experiencia en el Backend. Me gusta trabajar en
         entornos basados en JavaScript, ya que es el lenguaje que domino y
         disfruto programar con él.
       </p>
-      <p>
+      <p class="text_scroll">
         Cuento con una carrera tecnológica en Desarrollo de Software de la
         Universidad de Cundinamarca, donde me gradué en septiembre de 2024.
         Además, he trabajado en diversos proyectos personales que podrás
         encontrar en mi portafolio.
       </p>
-      <p>
+      <p class="text_scroll">
         Para terminar, soy autodidacta, me apasiona aprender constantemente y
         disfruto todo lo relacionado con la tecnología y el desarrollo de
         software.
       </p>
     </div>
-    <div class="md:w-2/6  h-100">
+    <div class="image_scroll md:w-2/6  h-100">
       <img
         src="/logo/Logo.webp"
         alt="Foto de perfil"

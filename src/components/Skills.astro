@@ -33,32 +33,32 @@ const getIconComponent = (name: any) => {
 
 <section
   id="skills"
-  class="section flex flex-col gap-4 scroll-m-20 w-full mx-auto container py-36"
+  class="section flex flex-col gap-4 scroll-m-20  w-full mx-auto container py-36"
 >
   <div class="flex flex-col mb-6">
     <h2
-      class="flex items-center mb-6 text-3xl font-semibold gap-x-3 text-[#a3e3f8] neon-text"
+      class="skills-title flex items-center mb-6 text-3xl font-semibold gap-x-3 text-[#a3e3f8] neon-text gsap-title"
     >
       <Skills_icon class="h-8 w-8" />
       Mis Conocimientos
     </h2>
-    <span>
+    <span class="skills-subtitle gsap-subtitle">
       Me especializo en el lenguaje de programación JavaScript tanto Frontend
       como Backend.
     </span>
   </div>
   <div class="flex md:flex-row flex-col gap-3 lg:flex-nowrap flex-grow">
     <p
-      class="flex items-start p-2 text-2xl font-bold dark:text-gray-200 md:w-1/4 w-full"
+      class="skills-category flex items-start p-2 text-2xl font-bold dark:text-gray-200 md:w-1/4 w-full gsap-category"
     >
       Frontend
     </p>
-    <ul class="flex flex-row items-center gap-3 flex-wrap md:w-3/4 w-full">
+    <ul class="flex flex-row items-center gap-3 flex-wrap md:w-3/4 w-full gsap-list">
       {
         frontendSkills.map((tech) => {
           const Icon = getIconComponent(tech.icon);
           return (
-            <li class="flex flex-row items-center gap-x-3 justify-center px-6 py-1.5  bg-[#052530] rounded-md hover:bg-[#253d46] hover:cursor-pointer">
+            <li class="skill-item flex flex-row items-center gap-x-3 justify-center px-6 py-1.5 bg-[#052530] rounded-md hover:bg-[#253d46] hover:cursor-pointer gsap-item" data-category="frontend">
               {Icon && <Icon class="w-4 h-4 mx-auto" />}
               <p class="text-sm">{tech.name}</p>
             </li>
@@ -70,16 +70,16 @@ const getIconComponent = (name: any) => {
 
   <div class="flex md:flex-row flex-col gap-3 flex-grow">
     <p
-      class="flex items-start p-2 text-2xl font-bold dark:text-gray-200 md:w-1/4 w-full"
+      class="skills-category flex items-start p-2 text-2xl font-bold dark:text-gray-200 md:w-1/4 w-full gsap-category"
     >
       Backend
     </p>
-    <ul class="flex flex-row items-center gap-3 flex-wrap md:w-3/4 w-full">
+    <ul class="flex flex-row items-center gap-3 flex-wrap md:w-3/4 w-full gsap-list">
       {
         backendSkills.map((tech) => {
           const Icon = getIconComponent(tech.icon);
           return (
-            <li class="flex flex-row items-center gap-x-3 justify-center px-6 py-1.5 bg-[#052530] rounded-md hover:bg-[#253d46] hover:cursor-pointer">
+            <li class="skill-item flex flex-row items-center gap-x-3 justify-center px-6 py-1.5 bg-[#052530] rounded-md hover:bg-[#253d46] hover:cursor-pointer gsap-item" data-category="backend">
               {Icon && <Icon class="w-4 h-4 mx-auto" />}
               <p class="text-sm">{tech.name}</p>
             </li>
@@ -91,16 +91,16 @@ const getIconComponent = (name: any) => {
 
   <div class="flex md:flex-row flex-col gap-3 flex-grow">
     <p
-      class="flex items-start p-2 text-2xl font-bold text-gray-200 md:w-1/4 w-full"
+      class="skills-category flex items-start p-2 text-2xl font-bold dark:text-gray-200 md:w-1/4 w-full gsap-category"
     >
       DevOps
     </p>
-    <ul class="flex flex-row items-center gap-3 flex-wrap md:w-3/4 w-full">
+    <ul class="flex flex-row items-center gap-3 flex-wrap md:w-3/4 w-full gsap-list">
       {
         devopsSkills.map((tech) => {
           const Icon = getIconComponent(tech.icon);
           return (
-            <li class="flex flex-row items-center gap-x-3 justify-center px-6 py-1.5 bg-[#052530] rounded-md hover:bg-[#253d46] hover:cursor-pointer">
+            <li class="skill-item flex flex-row items-center gap-x-3 justify-center px-6 py-1.5 bg-[#052530] rounded-md hover:bg-[#253d46] hover:cursor-pointer gsap-item" data-category="devops">
               {Icon && <Icon class="w-4 h-4 mx-auto" />}
               <p class="text-sm">{tech.name}</p>
             </li>
@@ -110,4 +110,7 @@ const getIconComponent = (name: any) => {
     </ul>
   </div>
   <Certificates />
+  <div class="h-[200px]">
+    
+  </div>
 </section>
