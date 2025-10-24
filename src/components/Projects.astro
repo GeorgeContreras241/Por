@@ -29,87 +29,112 @@ const getComponentIcon = (name: any) => {
 };
 ---
 
-<section class="flex flex-col gap-4 md:py-36 py-16" id="projects">
-  <h2
-    class="flex items-center gap-3 w-full mb-8 text-3xl font-semibold text-[#a3e3f8] neon-text"
-  >
-    <Code class="h-8 w-8" />
-    Proyectos
-  </h2>
-  <div class=" flex flex-col gap-12">
-    {
-      projects?.map((projects, index) => {
-        return (
-          <article
-            class={`flex flex-col gap-4 ${index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"} md:gap-8`}
-          >
-            <div class="image relative z-900 w-full md:w-3/6 border border-gray-800  rounded-lg h-full 
-            backdrop-blur-2xl overflow-hidden">
-              <div class="bg-neutral-800 p-2 flex gap-2 align-center rounded-t-lg">
-                <span class="w-2 h-2 rounded-full bg-red-500" />
-                <span class="w-2 h-2 rounded-full bg-yellow-500" />
-                <span class="w-2 h-2 rounded-full bg-green-500" />
+<section 
+  id="projects"
+  class="w-full mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 md:py-24"
+>
+  <div class="max-w-4xl mx-auto">
+    <div class="bg-gray-900/50 backdrop-blur-sm rounded-2xl border border-gray-800/50 overflow-hidden transition-all duration-300 hover:border-blue-500/30 hover:shadow-lg hover:shadow-blue-500/5">
+      <div class="p-6 border-b border-gray-800/50 bg-gradient-to-r from-blue-900/20 to-purple-900/10">
+        <h2 class="text-2xl font-bold text-white flex items-center gap-3">
+          <span class="text-blue-400">03</span>
+          <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400">
+            Proyectos Destacados
+          </span>
+        </h2>
+        <p class="mt-1 text-gray-400">Explora mis proyectos más recientes y desafiantes</p>
+      </div>
+      
+      <div class="p-6 space-y-12">
+        {
+          projects?.map((project, index) => (
+            <article 
+              class={`group relative bg-gray-900/50 rounded-xl border border-gray-800/50 overflow-hidden transition-all duration-300 hover:border-blue-500/30 hover:shadow-lg hover:shadow-blue-500/5`}
+            >
+              <div class={`flex flex-col ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
+                <div class="relative w-full md:w-1/2 overflow-hidden">
+                  <div class="bg-gray-800 p-2 flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-red-500"></span>
+                    <span class="w-2 h-2 rounded-full bg-yellow-500"></span>
+                    <span class="w-2 h-2 rounded-full bg-green-500"></span>
+                    <span class="text-xs text-gray-400 ml-2 truncate">{project.name}</span>
+                  </div>
+                  <div class="relative aspect-video bg-gray-900">
+                    <img
+                      src={project.image}
+                      alt={project.name}
+                      loading="lazy"
+                      class="w-full h-full object-cover aspect-auto rounded-b-lg border border-gray-700 cursor-pointer relative top-5 left-5 hover:top-0 hover:left-0 transition-all duration-1000 hover:border-transparent"
+                    />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                      <div class="flex flex-wrap gap-2">
+                        {project.technologies.map((tech) => {
+                          const Icon = getComponentIcon(tech.icon);
+                          return (
+                            <span class="inline-flex items-center gap-1.5 bg-gray-800/90 text-xs text-gray-200 px-2.5 py-1 rounded-full border border-gray-700/50">
+                              {Icon && <Icon class="h-3 w-3 text-blue-400" />}
+                              {tech.name}
+                            </span>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="p-6 w-full md:w-1/2 flex flex-col">
+                  <div class="flex-1">
+                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">
+                      {project.name}
+                    </h3>
+                    <p class="text-gray-300 text-sm leading-relaxed mb-4">
+                      {project.description}
+                    </p>
+                  </div>
+                  
+                  <div class="flex flex-wrap gap-3 pt-4 border-t border-gray-800/50">
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="inline-flex items-center gap-2 px-4 py-2 bg-gray-800/50 hover:bg-blue-600/10 text-blue-400 hover:text-blue-300 rounded-lg text-sm font-medium transition-all duration-300 border border-gray-700/50 hover:border-blue-500/30"
+                      aria-label={`Ver código de ${project.name} en GitHub`}
+                      title="Ver código fuente"
+                    >
+                      <GitHub class="h-4 w-4" />
+                      Código
+                    </a>
+                    
+                    <a
+                      href={project.url || project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class={`inline-flex items-center gap-2 px-4 py-2 ${
+                        project.url === false 
+                          ? 'bg-gray-800/50 hover:bg-purple-600/10 text-purple-400 hover:text-purple-300 border-gray-700/50 hover:border-purple-500/30'
+                          : 'bg-blue-600/10 hover:bg-blue-600/20 text-blue-400 hover:text-blue-300 border-blue-500/30 hover:border-blue-400/50'
+                      } rounded-lg text-sm font-medium transition-all duration-300 border`}
+                      aria-label={
+                        project.url === false 
+                          ? `Ver documentación de ${project.name}` 
+                          : `Ver demostración de ${project.name}`
+                      }
+                      title={
+                        project.url === false 
+                          ? 'Ver documentación' 
+                          : 'Ver demostración en vivo'
+                      }
+                    >
+                      <Web class="h-4 w-4" />
+                      {project.url === false ? 'Documentación' : 'Ver Demo'}
+                    </a>
+                  </div>
+                </div>
               </div>
-              <img
-                src={projects.image}
-                alt={projects.name}
-                loading="lazy"
-                class="w-full h-full object-cover aspect-auto rounded-b-lg border border-gray-700 cursor-pointer
-                relative z-1100 top-5 left-5 hover:top-0 hover:left-0 transition-all duration-1200 hover:border-transparent"
-              />
-            </div>
-            <div class="projects full md:w-3/6 grow h-full">
-              <h3 class="text-2xl font-bold text-[#a3e3f8] drop-shadow-md transition-colors duration-500 hover:text-[#8fe3ff]">
-                {projects.name}
-              </h3>
-              <ul class="mt-2 flex flex-wrap items-center gap-4 text-[.75rem] font-semibold text-gray-100">
-                {projects.technologies.map((tech) => {
-                  const Icon = getComponentIcon(tech.icon);
-                  return (
-                    <li class="flex justify-center items-center gap-x-1.5">
-                      {Icon && <Icon class="h-3 w-3" />}
-                      {tech.name}
-                    </li>
-                  );
-                })}
-              </ul>
-              <p class="mt-2 text-[#e0e0e0]">{projects.description}</p>
-              <nav class="flex flex-row gap-x-4 mt-4 justify-end items-center">
-                <a
-                  href={projects.github}
-                  aria-label={`Ver código fuente de ${projects.name} en GitHub`}
-                  title={`Ver código fuente de ${projects.name} en GitHub`}
-                  target="_blank"
-                  class="bg-[#052530] hover:bg-[#253d46] text-gray-100 font-semibold flex items-center gap-3 py-1 px-3 rounded-md text-sm transition-all duration-300 hover:scale-[1.02]"
-                  rel="noreferrer"
-                >
-                  <GitHub class="h-4 w-4 transition-transform duration-300" />
-                  Ver código fuente en GitHub
-                </a>
-                <a
-                  href={projects.url || projects.github}
-                  aria-label={
-                    projects.url === false
-                      ? `Ver documentación de ${projects.name} en GitHub`
-                      : `Ver demostración de ${projects.name}`
-                  }
-                  target="_blank"
-                  class="bg-[#052530] hover:bg-[#253d46] text-white font-semibold flex items-center gap-3 py-1 px-3 rounded-md text-sm transition-all duration-300 hover:scale-[1.02]"
-                  rel="noreferrer"
-                  title={
-                    projects.url === false
-                      ? `Ver documentación de ${projects.name} en GitHub`
-                      : `Ver demostración de ${projects.name}`
-                  }
-                >
-                  <Web class="h-4 w-4 transition-transform duration-300" />
-                  {projects.url === false ? "Ver documentación" : "Ver demostración"}
-                </a>
-              </nav>
-            </div>
-          </article>
-        );
-      })
-    }
+            </article>
+          ))
+        }
+      </div>
+    </div>
   </div>
 </section>

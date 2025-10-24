@@ -33,34 +33,46 @@ const getIconComponent = (name: any) => {
 
 <section
   id="skills"
-  class="section flex flex-col gap-4 scroll-m-20  w-full mx-auto container py-36"
+  class="w-full mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 md:py-24"
 >
-  <div class="flex flex-col mb-6">
+  <div class="max-w-4xl mx-auto text-center mb-16 md:mb-20">
     <h2
-      class="skills-title flex items-center mb-6 text-3xl font-semibold gap-x-3 text-[#a3e3f8] neon-text gsap-title"
+      class="text-4xl md:text-5xl lg:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-400 to-blue-500 mb-4 gsap-title"
     >
-      <Skills_icon class="h-8 w-8" />
-      Mis Conocimientos
+      Habilidades & Tecnologías
     </h2>
-    <span class="skills-subtitle gsap-subtitle">
-      Me especializo en el lenguaje de programación JavaScript tanto Frontend
-      como Backend.
-    </span>
-  </div>
-  <div class="flex md:flex-row flex-col gap-3 lg:flex-nowrap flex-grow">
-    <p
-      class="skills-category flex items-start p-2 text-2xl font-bold dark:text-gray-200 md:w-1/4 w-full gsap-category"
-    >
-      Frontend
+    <p class="text-gray-300 text-lg md:text-xl max-w-2xl mx-auto gsap-subtitle">
+      Tecnologías y herramientas con las que trabajo habitualmente
     </p>
-    <ul class="flex flex-row items-center gap-3 flex-wrap md:w-3/4 w-full gsap-list">
+  </div>
+  <div class="mb-12 last:mb-0 bg-gray-900/50 backdrop-blur-sm rounded-2xl border border-gray-800/50 overflow-hidden transition-all duration-300 hover:border-blue-500/30 hover:shadow-lg hover:shadow-blue-500/5">
+    <div class="p-6 border-b border-gray-800/50 bg-gradient-to-r from-blue-900/20 to-purple-900/10">
+      <h3 class="text-2xl font-bold text-white flex items-center gap-3">
+        <span class="text-blue-400">01</span>
+        <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400">
+          Frontend
+        </span>
+      </h3>
+      <p class="mt-1 text-gray-400">Tecnologías para el desarrollo de interfaces de usuario</p>
+    </div>
+    <div class="p-6">
+      <ul class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
       {
         frontendSkills.map((tech) => {
           const Icon = getIconComponent(tech.icon);
           return (
-            <li class="skill-item flex flex-row items-center gap-x-3 justify-center px-6 py-1.5 bg-[#052530] rounded-md hover:bg-[#253d46] hover:cursor-pointer gsap-item" data-category="frontend">
-              {Icon && <Icon class="w-4 h-4 mx-auto" />}
-              <p class="text-sm">{tech.name}</p>
+            <li class="group relative p-4 bg-gray-800/50 rounded-xl border border-gray-700/50 hover:border-blue-500/30 transition-all duration-300 hover:scale-[1.02] hover:shadow-md hover:shadow-blue-500/5">
+              <div class="flex items-center gap-3">
+                <div class="p-2.5 rounded-lg bg-gradient-to-br from-blue-500/10 to-purple-500/10 group-hover:from-blue-500/20 group-hover:to-purple-500/20 transition-all duration-300">
+                  {Icon && <Icon class="w-6 h-6 text-blue-400 group-hover:text-blue-300 transition-colors duration-300" />}
+                </div>
+                <div>
+                  <h4 class="font-medium text-white group-hover:text-blue-300 transition-colors duration-300">
+                    {tech.name}
+                  </h4>
+                  <p class="text-xs text-gray-400 mt-0.5">{tech.level || 'Avanzado'}</p>
+                </div>
+              </div>
             </li>
           );
         })
@@ -68,20 +80,34 @@ const getIconComponent = (name: any) => {
     </ul>
   </div>
 
-  <div class="flex md:flex-row flex-col gap-3 flex-grow">
-    <p
-      class="skills-category flex items-start p-2 text-2xl font-bold dark:text-gray-200 md:w-1/4 w-full gsap-category"
-    >
-      Backend
-    </p>
-    <ul class="flex flex-row items-center gap-3 flex-wrap md:w-3/4 w-full gsap-list">
+  <div class="mb-12 last:mb-0 bg-gray-900/50 backdrop-blur-sm rounded-2xl border border-gray-800/50 overflow-hidden transition-all duration-300 hover:border-blue-500/30 hover:shadow-lg hover:shadow-blue-500/5">
+    <div class="p-6 border-b border-gray-800/50 bg-gradient-to-r from-blue-900/20 to-purple-900/10">
+      <h3 class="text-2xl font-bold text-white flex items-center gap-3">
+        <span class="text-blue-400">02</span>
+        <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400">
+          Backend
+        </span>
+      </h3>
+      <p class="mt-1 text-gray-400">Tecnologías para el desarrollo del lado del servidor</p>
+    </div>
+    <div class="p-6">
+      <ul class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
       {
         backendSkills.map((tech) => {
           const Icon = getIconComponent(tech.icon);
           return (
-            <li class="skill-item flex flex-row items-center gap-x-3 justify-center px-6 py-1.5 bg-[#052530] rounded-md hover:bg-[#253d46] hover:cursor-pointer gsap-item" data-category="backend">
-              {Icon && <Icon class="w-4 h-4 mx-auto" />}
-              <p class="text-sm">{tech.name}</p>
+            <li class="group relative p-4 bg-gray-800/50 rounded-xl border border-gray-700/50 hover:border-blue-500/30 transition-all duration-300 hover:scale-[1.02] hover:shadow-md hover:shadow-blue-500/5">
+              <div class="flex items-center gap-3">
+                <div class="p-2.5 rounded-lg bg-gradient-to-br from-blue-500/10 to-purple-500/10 group-hover:from-blue-500/20 group-hover:to-purple-500/20 transition-all duration-300">
+                  {Icon && <Icon class="w-6 h-6 text-blue-400 group-hover:text-blue-300 transition-colors duration-300" />}
+                </div>
+                <div>
+                  <h4 class="font-medium text-white group-hover:text-blue-300 transition-colors duration-300">
+                    {tech.name}
+                  </h4>
+                  <p class="text-xs text-gray-400 mt-0.5">{tech.level || 'Intermedio'}</p>
+                </div>
+              </div>
             </li>
           );
         })
@@ -89,28 +115,41 @@ const getIconComponent = (name: any) => {
     </ul>
   </div>
 
-  <div class="flex md:flex-row flex-col gap-3 flex-grow">
-    <p
-      class="skills-category flex items-start p-2 text-2xl font-bold dark:text-gray-200 md:w-1/4 w-full gsap-category"
-    >
-      DevOps
-    </p>
-    <ul class="flex flex-row items-center gap-3 flex-wrap md:w-3/4 w-full gsap-list">
+  <div class="mb-12 last:mb-0 bg-gray-900/50 backdrop-blur-sm rounded-2xl border border-gray-800/50 overflow-hidden transition-all duration-300 hover:border-blue-500/30 hover:shadow-lg hover:shadow-blue-500/5">
+    <div class="p-6 border-b border-gray-800/50 bg-gradient-to-r from-blue-900/20 to-purple-900/10">
+      <h3 class="text-2xl font-bold text-white flex items-center gap-3">
+        <span class="text-blue-400">03</span>
+        <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400">
+          DevOps
+        </span>
+      </h3>
+      <p class="mt-1 text-gray-400">Herramientas para despliegue y operaciones</p>
+    </div>
+    <div class="p-6">
+      <ul class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
       {
         devopsSkills.map((tech) => {
           const Icon = getIconComponent(tech.icon);
           return (
-            <li class="skill-item flex flex-row items-center gap-x-3 justify-center px-6 py-1.5 bg-[#052530] rounded-md hover:bg-[#253d46] hover:cursor-pointer gsap-item" data-category="devops">
-              {Icon && <Icon class="w-4 h-4 mx-auto" />}
-              <p class="text-sm">{tech.name}</p>
+            <li class="group relative p-4 bg-gray-800/50 rounded-xl border border-gray-700/50 hover:border-blue-500/30 transition-all duration-300 hover:scale-[1.02] hover:shadow-md hover:shadow-blue-500/5">
+              <div class="flex items-center gap-3">
+                <div class="p-2.5 rounded-lg bg-gradient-to-br from-blue-500/10 to-purple-500/10 group-hover:from-blue-500/20 group-hover:to-purple-500/20 transition-all duration-300">
+                  {Icon && <Icon class="w-6 h-6 text-blue-400 group-hover:text-blue-300 transition-colors duration-300" />}
+                </div>
+                <div>
+                  <h4 class="font-medium text-white group-hover:text-blue-300 transition-colors duration-300">
+                    {tech.name}
+                  </h4>
+                  <p class="text-xs text-gray-400 mt-0.5">{tech.level || 'Intermedio'}</p>
+                </div>
+              </div>
             </li>
           );
         })
       }
     </ul>
   </div>
-  <Certificates />
-  <div class="h-[200px]">
-    
+  <div class="mt-20">
+    <Certificates />
   </div>
 </section>
