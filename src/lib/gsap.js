@@ -42,11 +42,11 @@ let split = SplitText.create(".text", {
       scrollTrigger: {
         trigger: ".text",
         markers: false,
-        toggleActions: "play none none reverse",
-        start: "top 85%",
+        toggleActions: "play none none none",
+        start: "top 90%",
         end: "bottom 15%",
       },
-      duration: 0.4, 
+      duration: 0.3, 
       y: 15, 
       autoAlpha: 0, 
       stagger: 0.03
@@ -54,41 +54,155 @@ let split = SplitText.create(".text", {
   }
 })
 
+// Hero section animations - Faster version
 tl
+  // Console log text
   .from(".title", {
     y: 10,
     opacity: 0,
-    duration: 0.6,
-    ease: "power3.out"
+    duration: 0.4,
+    ease: "power2.out"
   })
-  .from(".subtitle", {
+  // Main heading
+  .from("h1.subtitle", {
+    y: 20,
+    opacity: 0,
+    duration: 0.5,
+    ease: "back.out(2.5)",
+    scale: 0.95
+  }, "-=.2")
+  // Role text
+  .from("div.subtitle", {
     y: 15,
     opacity: 0,
-    duration: 0.6,
-    ease: "power3.out"
-  }, "-=.8")
-  .from(".links", {
-    stagger: 1,
-    y: 10,
-    autoAlpha: 0, 
-    opacity: 0,
     duration: 0.4,
-    ease: "power3.out",
-  }, "-=.5");
+    ease: "power2.out"
+  }, "-=.3")
+  // Description box
+  .from(".relative.group > .relative", {
+    y: 20,
+    opacity: 0,
+    duration: 0.5,
+    ease: "power2.out"
+  }, "-=.2")
+  // Buttons
+  .from(".links a", {
+    y: 10,
+    opacity: 0,
+    duration: 0.3,
+    stagger: 0.1,
+    ease: "power2.out"
+  }, "-=.2");
 
-gsap.from(".projects", {
+// Projects section animations - Faster version
+gsap.utils.toArray('.group.relative').forEach((project, i) => {
+  gsap.from(project, {
+    scrollTrigger: {
+      trigger: project,
+      start: 'top 90%',
+      end: 'bottom 10%',
+      toggleActions: 'play none none reverse',
+    },
+    y: 20,
+    opacity: 0,
+    duration: 0.3,
+    ease: 'power2.out',
+    delay: i * 0.02
+  });
+
+  // Image hover effect - Faster
+  const img = project.querySelector('img');
+  if (img) {
+    img.addEventListener('mouseenter', () => {
+      gsap.to(img, {
+        scale: 1.02,
+        duration: 0.2,
+        ease: 'power2.out'
+      });
+    });
+    
+    img.addEventListener('mouseleave', () => {
+      gsap.to(img, {
+        scale: 1,
+        duration: 0.2,
+        ease: 'power2.out'
+      });
+    });
+  }
+});
+
+// About section animations - Faster version
+gsap.from("#about .bg-gray-900\\/50", {
   scrollTrigger: {
-    trigger: ".projects",
-    markers: false,
-    toggleActions: "play none none reverse",
-    start: "top 85%",
-    end: "bottom 15%",
+    trigger: "#about",
+    start: 'top 85%',
+    end: 'bottom 15%',
+    toggleActions: 'play none none none'
   },
-  y: -10,
-  opacity: 1,
-  duration: .6,
-  ease: "power3.out",
-  stagger: .1,
+  y: 20,
+  opacity: 0,
+  duration: 0.5,
+  ease: 'power2.out'
+});
+
+gsap.from("#about img", {
+  scrollTrigger: {
+    trigger: "#about",
+    start: 'top 85%',
+    end: 'bottom 15%',
+    toggleActions: 'play none none none'
+  },
+  scale: 0.95,
+  opacity: 0,
+  duration: 0.6,
+  ease: 'back.out(2)',
+  delay: 0.1
+});
+
+// Skills section animations - Faster version
+const skillSections = [
+  { selector: "#skills .grid > div:nth-child(1) ul li", delay: 0 },
+  { selector: "#skills .grid > div:nth-child(2) ul li", delay: 0.02 },
+  { selector: "#skills .grid > div:nth-child(3) ul li", delay: 0.04 }
+];
+
+skillSections.forEach(section => {
+  gsap.utils.toArray(section.selector).forEach((item, i) => {
+    gsap.from(item, {
+      scrollTrigger: {
+        trigger: item,
+        start: 'top 92%',
+        end: 'bottom 8%',
+        toggleActions: 'play none none none'
+      },
+      y: 15,
+      opacity: 0,
+      duration: 0.3,
+      ease: 'power2.out',
+      delay: i * 0.03 + section.delay
+    });
+  });
+});
+
+// Section header animations - Faster version
+const sectionHeaders = [
+  "#skills h2",
+  "#about h2",
+  "#projects h2"
+];
+
+sectionHeaders.forEach(selector => {
+  gsap.from(selector, {
+    scrollTrigger: {
+      trigger: selector,
+      start: 'top 92%',
+      toggleActions: 'play none none none',
+    },
+    y: 20,
+    opacity: 0,
+    duration: 0.5,
+    ease: 'power2.out'
+  });
 });
 
 gsap.from('.image', {
@@ -131,10 +245,10 @@ let textScroll = SplitText.create(".text_scroll", {
         trigger: ".text_scroll",
         markers: false,
         toggleActions: "play none none reverse",
-        start: "top 85%",
+        start: "top 90%",
         end: "bottom 15%",
       },
-      duration: 0.4, 
+      duration: 0.3, 
       opacity: 1,
       y: 10, 
       autoAlpha: 0, 
@@ -197,7 +311,7 @@ gsap.utils.toArray(".skills-category").forEach((category, i) => {
       trigger: category,
       markers: false,
       toggleActions: "play none none reverse",
-      start: "top 85%",
+      start: "top 90%",
       end: "bottom 15%",
     },
     x: i % 2 === 0 ? -10 : 10,
@@ -254,7 +368,7 @@ gsap.utils.toArray(".certificate-item").forEach((item, i) => {
       trigger: item,
       markers: false,
       toggleActions: "play none none reverse",
-      start: "top 85%",
+      start: "top 90%",
       end: "bottom 15%",
     },
     scale: 0.5,
@@ -269,9 +383,8 @@ gsap.utils.toArray(".certificate-item").forEach((item, i) => {
   gsap.from(".certificate-content", {
     scrollTrigger: {
       trigger: item,
-      markers: false,
       toggleActions: "play none none reverse",
-      start: "top 80%",
+      start: "top 85%",
       end: "bottom 15%",
     },
     x: i % 2 === 0 ? 30 : -30,

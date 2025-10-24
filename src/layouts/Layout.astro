@@ -18,13 +18,13 @@ const { description, title } = Astro.props;
     <title>{title}</title>
     <meta name="description" content={description} />
   </head>
-  <body class="text-white">
+  <body class="text-white bg-black">
     <Nanvar />
     <div
-      class="pointer_mouse h-[500px] w-[500px] overflow-hidden rounded-full fixed z-9999"
+      class="pointer_mouse h-[600px] w-[600px] overflow-hidden rounded-full fixed z-9999"
     >
     </div>
-    <div class="fixed top-0 bottom-0 z-[-2] min-h-screen w-full bg-black">
+    <div class="fixed top-0 bottom-0 z-[-2] min-h-screen w-full bg-gradient-to-b from-black via-gray-900 to-black">
       <img
         src="./images/Neon.webp"
         alt="background"
@@ -32,7 +32,7 @@ const { description, title } = Astro.props;
            animate-[pulse_6s_ease-in-out_infinite]"
       />
     </div>
-    <main>
+    <main class="space-y-24 md:space-y-32 py-16 md:py-24">
       <slot />
     </main>
     <Footer />
@@ -53,12 +53,13 @@ const { description, title } = Astro.props;
   }
 
   .pointer_mouse {
-    background-color: rgba(5, 70, 247, 0.5);
+    background-color: rgba(5, 70, 247, 0.349);
     background: radial-gradient(
       circle,
-      rgba(0, 81, 231, 0.247) 2%,
+      rgba(0, 81, 231, 0.123) 2%,
       transparent
     );
+    brightness: 1.2;
     transform: translate(-50%, -50%);
     pointer-events: none;
   }
