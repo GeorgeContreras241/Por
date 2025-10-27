@@ -28,31 +28,10 @@ const tl = gsap.timeline({
     ease: "power2.out",
     y: 10,
     opacity: 0,
-    markers: false,
-    
   },
 });
 
-let split = SplitText.create(".text", {
-  type: "lines, words",
-  mask: "lines",
-  autoSplit: true,
-  onSplit(self) {
-    return gsap.from(self.words, {
-      scrollTrigger: {
-        trigger: ".text",
-        markers: false,
-        toggleActions: "play none none none",
-        start: "top 90%",
-        end: "bottom 15%",
-      },
-      duration: 0.3, 
-      y: 15, 
-      autoAlpha: 0, 
-      stagger: 0.03
-    });
-  }
-})
+
 
 // Hero section animations - Faster version
 tl
@@ -83,19 +62,19 @@ tl
     y: 20,
     opacity: 0,
     duration: 0.5,
-    ease: "power2.out"
+    ease: "power2.out",
   }, "-=.2")
   // Buttons
-  .from(".links a", {
-    y: 10,
-    opacity: 0,
-    duration: 0.3,
+  .from(".links", {
+    y: 15,
+    opacity: 1,
+    duration: 0.5,
     stagger: 0.1,
     ease: "power2.out"
   }, "-=.2");
 
 // Projects section animations - Faster version
-gsap.utils.toArray('.group.relative').forEach((project, i) => {
+gsap.utils.toArray('.projects').forEach((project, i) => {
   gsap.from(project, {
     scrollTrigger: {
       trigger: project,
@@ -220,89 +199,10 @@ gsap.from('.image', {
   stagger: .1,
 })
 
-gsap.from(".title_scroll", {
-  scrollTrigger: {
-    trigger: ".title_scroll",
-    markers: false,
-    toggleActions: "play none none reverse",
-    start: "top 85%",
-    end: "bottom 15%",
-  },
-  y: 10,
-  opacity: 1,
-  duration: .6,
-  ease: "power3.out",
-  stagger: .1,
-})
 
-let textScroll = SplitText.create(".text_scroll", {
-  type: "lines, words",
-  mask: "lines",
-  autoSplit: true,
-  onSplit(self) {
-    return gsap.from(self.words, {
-      scrollTrigger: {
-        trigger: ".text_scroll",
-        markers: false,
-        toggleActions: "play none none reverse",
-        start: "top 90%",
-        end: "bottom 15%",
-      },
-      duration: 0.3, 
-      opacity: 1,
-      y: 10, 
-      autoAlpha: 0, 
-      stagger: 0.03
-    });
-  }
-})
 
-gsap.from(".image_scroll", {
-  scrollTrigger: {
-    trigger: ".image_scroll",
-    markers: false,
-    toggleActions: "play none none reverse",
-    start: "top 85%",
-    end: "bottom 15%",
-  },
-  y: 10,
-  opacity: 1,
-  duration: .6,
-  ease: "power3.out",
-  stagger: .1,
-})
 
-// Animación para la sección de habilidades
-// Título de la sección
-gsap.from(".skills-title", {
-  scrollTrigger: {
-    trigger: "#skills",
-    markers: false,
-    toggleActions: "play none none reverse",
-    start: "top 85%",
-    end: "bottom 15%",
-  },
-  y: 10,
-  opacity: 0,
-  duration: 0.6,
-  ease: "power3.out"
-});
 
-// Subtítulo de la sección
-gsap.from(".skills-subtitle", {
-  scrollTrigger: {
-    trigger: "#skills",
-    markers: false,
-    toggleActions: "play none none reverse",
-    start: "top 80%",
-    end: "bottom 15%",
-  },
-  y: 10,
-  opacity: 0,
-  duration: 0.6,
-  delay: 0.2,
-  ease: "power3.out"
-});
 
 // Categorías de habilidades
 gsap.utils.toArray(".skills-category").forEach((category, i) => {
@@ -341,22 +241,6 @@ gsap.utils.toArray(".skill-item").forEach((item, i) => {
       amount: 0.5
     }
   });
-});
-
-// Animación para la sección de certificados
-// Título de la sección
-gsap.from(".certificates-title", {
-  scrollTrigger: {
-    trigger: ".certificates-section",
-    markers: false,
-    toggleActions: "play none none reverse",
-    start: "top 85%",
-    end: "bottom 15%",
-  },
-  y: 10,
-  opacity: 0,
-  duration: 0.6,
-  ease: "power3.out"
 });
 
 // Items de certificados

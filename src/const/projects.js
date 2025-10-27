@@ -12,7 +12,9 @@ export const projects = [
       ],
       url: null,
       github: 'https://github.com/GeorgeContreras241/G-Password_manager',
-      image: './images/project07.webp'
+      image: './images/project07.webp',
+      state: true
+
     },
     {
       id: 2,
@@ -25,20 +27,23 @@ export const projects = [
       ],
       url: 'https://g-local-password-manager.vercel.app/',
       github: 'https://github.com/GeorgeContreras241/G-Local-password-manager',
-      image: './images/project06.webp'
+      image: './images/project06.webp',
+      state: false
     },
     {
       id: 3,
-      name: 'Landing Page Metálicas J Y N',
+      name: 'Wars Sky',
       description:
-        'Sitio web corporativo para Metálicas J Y N, mostrando sus productos y servicios. Desarrollado con Astro para máximo rendimiento y SEO.',
+        'Aplicacion Web que permite al usuario a travez del riotTag de League of Legends buscar informacion de sus partidas y live game. Gestionando la API de Riot Games a travez de NextJS y cacheando la informacion para que no se sobrecargue el servidor. Mediante uso de MongoDB y localStorage. ',
       technologies: [
-        { name: 'Astro', icon: 'Astro_icons' },
-        { name: 'Tailwind', icon: 'Tailwind' }
+        { name: 'NextJS', icon: 'NextJS' },
+        { name: 'Tailwind', icon: 'Tailwind' },
+        { name: 'MongoDB', icon: 'Mongo' }
       ],
       url: false,
       github: 'https://github.com/GeorgeContreras241/G-MetalicasJyN',
-      image: './images/project01.webp'
+      image: './images/ward-sky.webp',
+      state: true
     },
     {
       id: 4,
@@ -51,7 +56,8 @@ export const projects = [
       ],
       url: 'https://store-api-sage.vercel.app',
       github: 'https://github.com/GeorgeContreras241/Store-Api',
-      image: './images/project04.webp'
+      image: './images/project04.webp',
+      state: false
     },
     {
       id: 5,
@@ -65,6 +71,7 @@ export const projects = [
       ],
       url: "https://porfolio-v2-nu.vercel.app",
       github: 'https://github.com/GeorgeContreras241/G-Porfolio_V2.git',
-      image: './images/project08.webp'
+      image: './images/project08.webp',
+      state: false
     }
   ];
