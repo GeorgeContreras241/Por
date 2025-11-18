@@ -1,13 +1,11 @@
----
 
----
 
-<header class="fixed top-0 w-full z-1100 bg-transparent">
+<header class="fixed top-0 w-full z-1100 bg-transparent ">
   <nav
     class="hidden md:flex container mx-auto px-6 py-3 justify-center text-white"
   >
     <div
-      class="flex space-x-8 bg-[#1a2238]/95 border border-gray-800/50 rounded-full px-8 py-3 shadow-xl shadow-blue-900/10"
+      class="flex space-x-18 bg-[#1a2238]/95 border border-gray-800/50 rounded-full px-8 py-3 shadow-xl shadow-blue-900/10 "
     >
       <a
         aria-label="hero"
@@ -62,7 +60,7 @@
     <div class="menu flex flex-col gap-y-1.5 justify-center items-center">
       <input
         type="checkbox"
-        class="toggle peer absolute z-[1] opacity-0 w-6 h-6 cursor-pointer"
+        class="toggle peer absolute z-[1] opacity-0 w-6 h-6"
       />
       <div class="bg-white h-0.5 w-6 line"></div>
       <div class="bg-white h-0.5 w-6 line"></div>
@@ -125,26 +123,31 @@
 </header>
 <script>
   document.addEventListener("DOMContentLoaded", () => {
-    const sections = document.querySelectorAll("section");
     const navbarLinks = document.querySelectorAll("header nav a");
+    const sections = Array.from(document.querySelectorAll("section")).filter(section => {
+      // Only include sections that have a corresponding nav link
+      const id = section.id;
+      return Array.from(navbarLinks).some(link => link.getAttribute("aria-label") === id);
+    });
+
 
     const callback = (entries) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          const currentId = entry.target.id;
-
+        const currentId = entry.target.id;
+        if (entry.isIntersecting && entry.intersectionRatio > 0.2) {
+          
           navbarLinks.forEach((link) => {
             const linkTarget = link.getAttribute("aria-label");
-            if (linkTarget === currentId) {
-              link.classList.add("[&>span]:w-full");
-              link.classList.add("text-blue-400");
+            const isActive = linkTarget === currentId;
+            
+            if (isActive) {
+              link.classList.add("[&>span]:w-full", "text-blue-400");
               link.classList.remove("text-white");
             } else {
-              link.classList.remove("[&>span]:w-full");
-              link.classList.remove("border-b");
-              link.classList.remove("text-blue-400");
+              link.classList.remove("[&>span]:w-full", "text-blue-400");
               link.classList.add("text-white");
             }
+            
           });
         }
       });
@@ -152,11 +155,16 @@
 
     const observer = new IntersectionObserver(callback, {
       root: null,
-      rootMargin: "10px",
-      threshold: 0.5,
+      rootMargin: '0px',
+      threshold: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]
     });
 
-    sections.forEach((section) => observer.observe(section));
+    sections.forEach((section) => {
+      observer.observe(section);
+    });
+    
+    // Clean up observer when component unmounts
+    return () => observer.disconnect();
 
     document.onvisibilitychange = () => {
       if (document.visibilityState === "hidden") {

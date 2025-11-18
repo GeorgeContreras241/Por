@@ -1,6 +1,7 @@
 ---
 import Footer from "../components/Footer.astro";
 import Nanvar from "../components/Nanvar.astro";
+import { ClientRouter } from "astro:transitions";
 import "../styles/global.css";
 interface Props {
   title: string;
@@ -16,12 +17,16 @@ const { description, title } = Astro.props;
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{title}</title>
+    <ClientRouter />
     <meta name="description" content={description} />
   </head>
-  <body class="text-white">
+  <body class="text-white bg-black">
     <Nanvar />
     <div
-      class="fixed top-0 bottom-0 z-[-2] min-h-screen w-full bg-black">
+      class="pointer_mouse h-[600px] w-[600px] overflow-hidden rounded-full fixed z-9999"
+    >
+    </div>
+    <div class="fixed top-0 bottom-0 z-[-2] min-h-screen w-full bg-gradient-to-b from-black via-gray-900 to-black">
       <img
         src="./images/Neon.webp"
         alt="background"
@@ -29,11 +34,12 @@ const { description, title } = Astro.props;
            animate-[pulse_6s_ease-in-out_infinite]"
       />
     </div>
+    <main class=" md:space-y-32 md:py-24 py-16">
+      <slot />
+    </main>
+    <Footer />
+    <script src="../lib/gsap.js"></script>
   </body>
-  <main>
-    <slot />
-  </main>
-  <Footer />
 </html>
 
 <style>
@@ -42,5 +48,25 @@ const { description, title } = Astro.props;
     margin: 0;
     width: 100%;
     height: 100%;
+  }
+
+  body {
+    cursor: url("https://ani.cursors-4u.net/cursors/cur-13/cur1160.png"), auto;
+  }
+
+  .pointer_mouse {
+    background-color: rgba(5, 70, 247, 0.349);
+    background: radial-gradient(
+      circle,
+      rgba(0, 81, 231, 0.123) 2%,
+      transparent
+    );
+    brightness: 1.2;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+  }
+  button,
+  a {
+    cursor: url("https://cur.cursors-4u.net/cursors/cur-1/cur1067.png"),
   }
 </style>
