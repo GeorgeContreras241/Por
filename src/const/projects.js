@@ -41,7 +41,7 @@ export const projects = [
         { name: 'MongoDB', icon: 'Mongo' }
       ],
       url: false,
-      github: 'https://github.com/GeorgeContreras241/G-MetalicasJyN',
+      github: 'https://github.com/GeorgeContreras241/Ward-Spy',
       image: './images/ward-sky.webp',
       state: true
     },
